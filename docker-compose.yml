@@ -1,0 +1,16 @@
+version: '3'
+services:
+  prometheus:
+    container_name: prm
+    image: bitnami/prometheus:latest
+    ports:
+      - 9090:9090
+
+  debian:
+    build: ./debian
+    container_name: deb
+    tty: true
+    ports:
+      - 9100:9100
+    depends_on:
+      - prometheus
