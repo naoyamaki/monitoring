@@ -2,7 +2,9 @@ version: '3'
 services:
   prometheus:
     container_name: prm
-    image: bitnami/prometheus:latest
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus:/etc/prometheus
     ports:
       - 9090:9090
 
